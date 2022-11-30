@@ -1,0 +1,22 @@
+\begin{frame}
+    \frametitle{\problemtitle}
+
+    \begin{itemize}
+        \item Determine a consistent final guess of length $\ell$ in a \emph{Wordle} game
+        where you have already guessed $g - 1$ times ($2 \leq g \leq 500$, $1 \leq \ell \leq 500$).
+        \item For every guess, the letters are marked in either green, yellow, or black.
+        \begin{itemize}
+            \item Green indicates that the letter is in the hidden word and appears in the same position.
+            \item Yellow indicates that the letter is in the hidden word, but in a different position.
+            \item Black indicates that the letter has no more occurrences in the hidden word.
+        \end{itemize}
+    \end{itemize}
+
+    \vspace{2em}
+
+    \centering
+    \includegraphics[height=0.3\textheight]{sample}
+
+    \small
+    Illustration of Sample Input 1, where ``\texttt{upper}'' is the only valid last guess.
+\end{frame}

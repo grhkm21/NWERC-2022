@@ -1,0 +1,42 @@
+\problemname{Interview Question}
+
+\newcommand{\maxd}{10^5}
+
+\illustration{0.35}{hex}{\emph{Fizz Buzz} implemented in Hexagony.\\
+  CC BY-SA 3.0 by M L on \href{https://codegolf.stackexchange.com/a/74906}{codegolf.stackexchange.com}}%
+\emph{Fizz Buzz} is a party game that is often used as a programming exercise in job interviews.
+In the game, there are two positive integers $a$ and $b$, and the game consists of counting up through the positive integers, replacing any number by \texttt{Fizz} if it is a multiple of $a$, by \texttt{Buzz} if it is a multiple of $b$, and by \texttt{FizzBuzz} if it is a multiple of both $a$ and $b$.
+The most common form of the game has $a=3$ and $b=5$, but other parameters are allowed.
+
+Your task here is to solve the reverse problem: given a transcript of part of the game (not necessarily starting at 1), find possible values of $a$ and $b$ that could have been used to generate it.
+
+Figure \ref{fig:i} shows some sample sequences for various values of $a$ and $b$.
+
+\begin{figure}[!h]
+  \centering
+  \begin{tabular}{ll}
+  \hspace{-0.6em}
+    $a=3, b=5:$ & \small\texttt{1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz} \\
+  \hspace{-0.6em}
+    $a=6, b=2:$ & \small\texttt{1 Buzz 3 Buzz 5 FizzBuzz 7 Buzz 9 Buzz 11 FizzBuzz 13} \\
+  \hspace{-0.6em}
+    $a=4, b=4:$ & \small\texttt{1 2 3 FizzBuzz 5 6 7 FizzBuzz 9 10 11 FizzBuzz 13 14} \\
+  \end{tabular}
+  \caption{Example sequences for \emph{Fizz Buzz}.}
+  \label{fig:i}
+\end{figure}
+\vspace{-1em}
+\begin{Input}
+  The input consists of:
+  \begin{itemize}
+    \item One line with two integers $c$ and $d$ ($1 \le c \le d \le \maxd$), indicating that your transcript starts at $c$ and ends at $d$.
+    \item One line with $d-c+1$ integers and strings, the contents of the transcript.
+  \end{itemize}
+  It is guaranteed that the transcript is valid for some integers $a$ and $b$ with $1 \le a,b \le 10^6$, according to the rules laid out above.
+\end{Input}
+
+\begin{Output}
+  Output two positive integers $a$ and $b$ ($1 \le a,b \le 10^6$) that are consistent with the given transcript.
+
+  If there are multiple valid solutions, you may output any one of them.
+\end{Output}

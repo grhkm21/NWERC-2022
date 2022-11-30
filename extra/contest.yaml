@@ -1,0 +1,31 @@
+# CCS fields:
+# OLD: https://ccs-specs.icpc.io/ccs_system_requirements?#contestyaml
+# NEW: https://ccs-specs.icpc.io/contest_archive_format#contest-object
+# Commented values are defaults
+id:                         problems
+name:                       Northwestern Europe Regional Contest 2022
+#formal_name:                Northwestern Europe Regional Contest 2022
+start_time:                 2022-11-27T10:00:00+01:00
+duration:                   5:00:00
+scoreboard_freeze_duration: 1:00:00
+#penalty_time:               20
+
+# Latex fields:
+title: NWERC 2022
+subtitle: Northwestern Europe Regional Contest 2022
+year: 2022
+author: The NWERC 2022 jury
+testsession: false
+blank_page_text:
+print_timelimit: true
+
+# problem.yaml defaults
+source_url: https://2022.nwerc.eu
+license: cc by-sa
+rights_owner: author
+
+# CCS fields for integration
+# URL endpoint of the CCS, e.g. https://www.domjudge.org/demoweb.
+api: https://dj.chipcie.ch.tudelft.nl/
+# Contest ID in the CCS; only needed in case of multiple active contests.
+contest_id: nwerc2022

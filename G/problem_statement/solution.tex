@@ -1,0 +1,63 @@
+\begin{frame}
+    \frametitle{\problemtitle}
+    \begin{block}{Problem}
+        Determine the number $n$ of train carriages of a circular train using at most $3n + 500$ steps. \\
+        In each step, you can either:
+        \begin{itemize}
+            \item move one carriage to the left,
+            \item move one carriage to the right, or
+            \item toggle the light switch in the current carriage.
+        \end{itemize}
+    \end{block}
+    \pause
+    \begin{block}{Solution}
+        \begin{itemize}
+            \item<+-> Naive solution: for some $x$, walk $x$ steps to the right
+                turning everything off, then flip one light switch, and walk $x$ steps back to see if the light changed somewhere.
+            \item<+-> If it did, then you know the length. If not, then try again with a larger $x$.
+            \item<+-> This does not work: for small $x$, there is a lot of repetition so you need too many queries if $n$ is large. For large $x$, you use too many queries if $n$ is small.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{\problemtitle}
+    \begin{block}{Problem}
+        Determine the number $n$ of train carriages of a circular train using at most $3n + 500$ steps.
+    \end{block}
+    \begin{block}{Solution}
+        \begin{itemize}
+            \item<+-> Alternative solution: use randomization.
+            \item<+-> Choose a random sequence of bits of sufficient size (e.g. $25$).
+            \item<+-> Set the initial $25$ bits to the chosen sequence.
+            \item<+-> Walk to the right and keep track of the last read $25$ bits.
+            \item<+-> If the last read bits correspond to the chosen sequence, we assume we made a full round.
+            \item<+-> Determine the length of the round using the number of steps made.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{\problemtitle}
+
+    \begin{block}{Problem}
+        Determine the number $n$ of train carriages of a circular train using at most $3n + 500$ steps.
+    \end{block}
+    \begin{block}{Pitfalls}
+        \begin{itemize}
+            \item<+-> The chosen bit sequence is not sufficiently long: De
+                Bruijn sequences cover all $15$-bit patterns..
+            \item<+-> The chosen bit sequence is not ``sufficiently random":
+            \begin{itemize}
+              \item \textsc{0000...}, \textsc{010101...},
+              \item the default output of \texttt{rand()},
+              \item the binary representation of special numbers: $\pi$, $e$, $\pi/2$, $\phi$.
+            \end{itemize}
+            \item<+-> Carefully handle the case where $n$ is smaller than the length of the chosen sequence!
+        \end{itemize}
+    \end{block}
+    \solvestats
+
+\end{frame}
+

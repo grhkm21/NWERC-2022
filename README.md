@@ -18,3 +18,5 @@ I tried my best to recreate our solutions we had in NWERC. However, there are so
 - L: unsolved
 
 In particular, the codes for E and K are interesting. I have also included my `check.sh` files as the output_validators are hard to use.
+
+Hidden test cases are not included, as they are absolutely massive. However, they can be downloaded [here](https://commissies.ch.tudelft.nl/chipcie/archive/2022/nwerc/solutions.zip). Simply unzip and place the `<problem>/secret/` directories under the corresponding problem directory.

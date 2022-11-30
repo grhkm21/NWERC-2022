@@ -1,0 +1,26 @@
+\begin{frame}
+    \frametitle{\problemtitle}
+    \begin{block}{Problem}
+      Given $n$ intervals $I_i=[\ell_i, r_i]$, for each of them find the length
+      $v(I_i)$ of
+      the longest \emph{chain} $I_i \subset I_{i_1} \subset I_{i_2}\subset \dots$.
+    \end{block}
+    \pause
+    \begin{block}{First steps}
+        \begin{itemize}
+            \item<+-> $I_i \subset I_j$ is only possible if
+                $r_i-\ell_i=t_i < t_j = r_j - \ell_j$.
+            \item<+-> Sort by decreasing length and iterate over all longer
+                intervals $\rightarrow$ $\mathcal O(n^2)$.
+          \item<+-> Sort by increasing $\ell$ first, and then decreasing $r$.
+          \item<+-> The value $v(r_i)$ of $[\ell_i, r_i]$ is $1+\max_{\ell_j \leq \ell_i, r_i \leq r_j} v(r_j)$.
+          \item<+-> Ignore $r_i$ if $r_i < r_j$ and $v(r_i) \leq v(r_j)$.
+          \item<+-> What is left are increasing $r_i$ with decreasing $v$, that
+                can be stored in an ordered set.
+          \item<+-> Compute $v(r_i)$ by looking up the first element at least $r_i$.
+          \item<+-> Insert $v(r_i)$ into the set and remove new suboptimal points
+                that follow it.
+        \end{itemize}
+    \end{block}
+    \solvestats
+\end{frame}

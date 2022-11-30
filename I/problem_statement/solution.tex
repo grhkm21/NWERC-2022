@@ -1,0 +1,30 @@
+\begin{frame}
+  \frametitle{\problemtitle}
+  \begin{block}{Problem}
+    A group of players takes turns counting through the integers from $c$ to $d$, except that
+    \vspace{-0.5em}
+    \begin{itemize}
+      \item each multiple of $a$ is replaced by \texttt{Fizz}
+      \item each multiple of $b$ is replaced by \texttt{Buzz}
+      \item each multiple of both $a$ and $b$ is replaced by \texttt{FizzBuzz}
+    \end{itemize}
+    \vspace{-0.5em}
+    Given a transcript of the game, reverse engineer the parameters $a$ and $b$.
+  \end{block}
+  \pause
+  \begin{block}{Solution}
+    \begin{itemize}
+      \item<+-> Find all the positions with \texttt{Fizz} (or
+        \texttt{FizzBuzz}) and all the positions with \texttt{Buzz} (or
+        \texttt{FizzBuzz}), then solve independently.
+      \item<+-> Three cases depending on the number of occurrences:
+        \begin{tabular}{c c l}
+          $2$ or more & $\leadsto$ & output the difference between the first two occurrences. \\
+          $1$ & $\leadsto$ & output the position of that single occurrence. \\
+          $0$ & $\leadsto$ & output some number past the end of the range. \\
+        \end{tabular}
+    \end{itemize}
+  \end{block}
+  \solvestats
+\end{frame}
+

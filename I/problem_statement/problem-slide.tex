@@ -1,0 +1,41 @@
+\begin{frame}
+    \frametitle{\problemtitle}
+
+    \begin{columns}
+        \begin{column}[T]{.70\textwidth}
+            \begin{itemize}
+                \item Solve the reverse of \emph{Fizz Buzz}:
+                given a transcript of part of the game (not necessarily starting at $1$),
+                find possible values of $a$ and $b$ ($1 \leq a,b \leq 10^6$) that could have been used to generate it.
+                \item In the transcript, every $a$th number is replaced with ``\texttt{Fizz}''
+                and every $b$th number is replaced with ``\texttt{Buzz}''
+                (or ``\texttt{FizzBuzz}'' if the number is divisible by both $a$ and $b$).
+                \item The transcript starts at $c$ and ends at $d$ ($1 \leq c \leq d \leq 10^5$).
+            \end{itemize}
+
+            \vspace{1.5em}
+
+            \centering
+
+            \texttt{7 8 Fizz Buzz 11}
+            \vspace{0.5em}
+
+            \small
+            Sample Input 1 starts at $7$ and ends at $11$, \\
+            and works for $a=3$ and $b=5$.
+
+            \vspace{1.5em}
+
+            \normalsize
+            \texttt{49999 FizzBuzz 50001 Fizz}
+            \vspace{0.5em}
+
+            \small
+            Sample Input 2 starts at $49\,999$ and ends at $50\,002$, \\
+            and works for $a=2$ and $b=125$.
+        \end{column}
+
+        \illustration{0.25}{hex}{\emph{Fizz Buzz} implemented in Hexagony.\\
+        CC BY-SA 3.0 by M L on \href{https://codegolf.stackexchange.com/a/74906}{codegolf.stackexchange.com}}%
+    \end{columns}
+\end{frame}

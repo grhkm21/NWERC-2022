@@ -1,0 +1,70 @@
+\begin{frame}
+    \frametitle{\problemtitle}
+    \begin{block}{Problem}
+      Given integers $a_0$ to $a_n$, how many of the following iterations does it take to sort
+      them:
+      \begin{itemize}
+        \item Odd rounds: Sort pairs $(a_0, a_1)$, $(a_2, a_3)$, $\dots$.
+        \item Even rounds: Sort pairs $(a_1, a_2)$, $(a_3, a_4)$, $\dots$.
+      \end{itemize}
+    \end{block}
+    \pause
+    \begin{block}{Observations}
+        \begin{itemize}
+            \item<+-> Naive solution: simulating $\mathcal O(n)$ steps takes
+                $\mathcal O(n^2)$ time.
+            \item<+-> Say the last swap is $(x, y)$.
+            \item<+-> Replacing $a_i \leq x$ by $0$ and $a_i > x$ by $1$
+                gives an input that takes the same number of iterations.
+            \item<+-> Idea: incrementally solve this $01$-instance for every $x=a_i$ and take the maximum.
+        \end{itemize}
+    \end{block}
+    \solvestats
+\end{frame}
+
+\begin{frame}
+    \frametitle{\problemtitle}
+    \begin{block}{Problem}
+      Given integers $a_0$ to $a_n$, how many of the following iterations does it take to sort
+      them:
+      \begin{itemize}
+        \item Odd rounds: Sort pairs $(a_0, a_1)$, $(a_2, a_3)$, $\dots$.
+        \item Even rounds: Sort pairs $(a_1, a_2)$, $(a_3, a_4)$, $\dots$.
+      \end{itemize}
+    \end{block}
+    \begin{block}{Solution for $01$-instance}
+        \begin{itemize}
+            \item<+-> $0$s move left, $1$s move right.
+            \item<+-> The rightmost $0$ is the last $0$ to be \emph{fixed}.
+            \item<+-> A $0$ is \emph{congested} when blocked by another $0$.
+          \item<+-> For each unfixed $0$, the total time is at least:
+            \begin{itemize}
+              \item The time to fix this $0$ fixed assuming no congestion, plus
+              \item the number of $0$s after it, since at most one $0$ can be fixed
+                    in each iteration.
+            \end{itemize}
+            \item<+-> The maximum over all unfixed $0$s is the answer.
+        \end{itemize}
+    \end{block}
+    \solvestats
+\end{frame}
+
+\begin{frame}
+    \frametitle{\problemtitle}
+    \begin{block}{Problem}
+      Given integers $a_0$ to $a_n$, how many of the following iterations does it take to sort
+      them:
+      \begin{itemize}
+        \item Odd rounds: Sort pairs $(a_0, a_1)$, $(a_2, a_3)$, $\dots$.
+        \item Even rounds: Sort pairs $(a_1, a_2)$, $(a_3, a_4)$, $\dots$.
+      \end{itemize}
+    \end{block}
+    \begin{block}{Solution}
+        \begin{itemize}
+            \item<+-> Incrementally solve all $01$-instances for increasing $x$.
+            \item<+-> Use a segment tree\footnote{Check the README for details.} to efficiently query the maximum time.
+            \item<+-> Incrementally update it for every $0$ that changes to a $1$.
+        \end{itemize}
+    \end{block}
+    \solvestats
+\end{frame}

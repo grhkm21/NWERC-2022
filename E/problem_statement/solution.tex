@@ -1,0 +1,77 @@
+\begin{frame}
+    \frametitle{\problemtitle}
+    \begin{block}{Problem}
+        Construct a graph such that the average optimal time to reach vertex $1$
+        is exactly $\displaystyle\frac{a}{b}$ or determine that this is impossible.
+    \end{block}
+    \pause
+    \begin{block}{Observations}
+        \begin{itemize}
+            \item<+-> Only edges on an optimal path to vertex $1$ are relevant, so without loss of generality the graph is a tree.
+            \item<+-> The exact shape of this tree does not matter, only the number of vertices in each layer.
+            \item<+-> Represent the graph as a list
+                $(a_0, a_1, \ldots, a_k)$ where $a_i$ is the number of vertices
+                in layer $i$\pause, satisfying:
+                \begin{itemize}
+                    \item There is only 1 vertex at the root layer, so $a_0 = 1$.
+                    \item There can only be vertices at layer $x$ if there are some at layer $x-1$, so for every $i$, $a_i \geq 1$.
+                \end{itemize}
+        \end{itemize}
+    \end{block}
+\end{frame}
+\begin{frame}
+    \frametitle{\problemtitle}
+    \begin{block}{Problem}
+        Construct a graph such that the average optimal time to reach vertex $1$
+        is exactly $\displaystyle\frac{a}{b}$ or determine that this is impossible.
+    \end{block}
+    \begin{block}{Solution}
+        \begin{itemize}
+            \item<+-> The graph can be represented as a list $(a_0, a_1, \ldots, a_k)$ where $a_i$ is the number of vertices in layer $i$.
+            \item<+-> Given such a list, construct a graph: vertex $1$ is the
+            root, and vertices at layer $i$ have a single vertex at layer $i-1$ as parent.
+            \item<+-> The total number of vertices is $a_0 + a_1 + \ldots + a_k$.
+            \item<+-> The optimal time for a vertex at layer $i$ is $i$, so the average optimal time is $\frac{0\cdot a_0 + 1 \cdot a_1 + \ldots + k \cdot a_k}{a_0 + a_1 + \ldots + a_k}$.
+            \item<+-> We consider two cases: either $\frac{a}{b} < 1$ or $\frac{a}{b} \geq 1$.
+        \end{itemize}
+    \end{block}
+\end{frame}
+\begin{frame}
+    \frametitle{\problemtitle}
+    \begin{block}{Problem}
+        Construct a graph such that the average optimal time to reach vertex $1$
+        is exactly $\displaystyle\frac{a}{b}$ or determine that this is impossible.
+    \end{block}
+    \begin{block}{Solution}
+        Case $1$: $\frac{a}{b} < 1$.
+        \begin{itemize}
+            \item<+-> If there is a vertex with optimal time at least $2$, then
+                the average optimal time is at least $1$.
+                Thus, such vertices cannot exist.
+            \item<+-> The average optimal time is now $\frac{a_1}{1+a_1}$.
+            \item<+-> If $a = b-1$, we solve the problem with the list $(1,a)$. Otherwise, the answer is \texttt{impossible}.
+        \end{itemize}
+    \end{block}
+\end{frame}
+\begin{frame}
+    \frametitle{\problemtitle}
+    \begin{block}{Problem}
+        Construct a graph such that the average optimal time to reach vertex $1$
+        is exactly $\displaystyle\frac{a}{b}$ or determine that this is impossible.
+    \end{block}
+    \begin{block}{Solution}
+        Case $2$: $\frac{a}{b} \geq 1$. Define $k$ as $\lfloor \frac{a}{b} \rfloor$.
+        \begin{itemize}
+            %\item<+-> We claim that it is always possible.
+            \item<+-> Consider a list of length $2k+1$ where every $a_i$ is $1$
+                except for $a_k$. We set $a_k$ to a value such that $a_k > 2k+1$
+                and the total number of vertices is divisible by $b$, i.e.
+                $n=m\cdot b$.
+            \item<+-> The average optimal time is $k\leq \frac ab$: all the ones cancel each other out.
+            \item<+-> Moving a vertex one layer up increases the average by
+                $\frac{1}{nb}$. Moving $(\frac ab - k)\cdot nb$ vertices increases it to $\frac{a}{b}$.
+            \item<+-> Such movements are possible: over half of the vertices is at layer $k$, so moving those to layer $k+2$ increases the average by $1$, which is already too much.
+        \end{itemize}
+    \end{block}
+    \solvestats
+\end{frame}
