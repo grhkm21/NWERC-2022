@@ -1,2 +1,0 @@
-Wrong answer: invalid response type. Queries used: 0
-Wrong answer: invalid response type. Queries used: 0
